@@ -1,6 +1,10 @@
 #Import modules  os, psutil, and csv
 import os
-import psutil
+try:
+    import psutil
+except ImportError:
+    print("psutil module is not installed. Please install it using 'pip install psutil'.")
+    exit(1)
 import csv
 
 
@@ -21,9 +25,12 @@ process_list = []
 
 # Since the result of the 'psutil.process_iter' is a list, we need to iterate through it using a for loop
 for p in psutil.process_iter(['pid', 'name', 'exe', 'cpu_percent', 'memory_info']):
-
+    try:
     # We need to create a variable to place the irritated data into and append the information to our empty list
-    process_info = p.info
+        process_info = p.info
+    # Handle the case where the process no longer exists or has changed during iteration
+    except psutil.NoSuchProcess:
+        continue
     process_list.append([
         process_info['pid'],
         process_info['name'],
