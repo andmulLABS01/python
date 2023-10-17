@@ -5,7 +5,7 @@ import csv
 import requests
 import json
 
-# Put in the paramitors for the API
+# Put in the parameters for the API
 url = "https://free-nba.p.rapidapi.com/players"
 
 querystring = {"page":"0","per_page":"25"}
@@ -24,7 +24,7 @@ try:
         try:
             player_data = response.json()
 
-            # Define the CSV file name
+            # Specify the name of the CSV file.
             csv_file = 'nba_players.csv'
 
             # Extract and format the data
@@ -46,28 +46,12 @@ try:
                 writer.writerows(formatted_data)
 
             print(f'Data has been saved to {csv_file}')
-        # Add additional error handleing     
+        # Add additional error handling     
         except json.JSONDecodeError:
             print("Error: The response does not contain valid JSON data.")
     else:
         print(f'Failed to retrieve data. Status code: {response.status_code}')
 except requests.exceptions.RequestException as e:
     print(f'Error: {e}')
-# # for i in flight['data']:
-# #     if i['depart_date'] == "s":
 
-
-# # drew = json.loads(strin)
-
-# # for i in drew['Reservations']:
-# #     id = i['Instances'][0]['InstanceId']
-# #     print(f'instance number: {id}')
-
-# # print(drew['Reservations'][0]['Instances'][0]['InstanceId'])
-# # print(drew['Reservations'][1]['Instances'][0]['InstanceId'])
-# # print(drew['Reservations'][2]['Instances'][0]['InstanceId'])
-# # print(drew['Reservations'][3]['Instances'][0]['InstanceId'])
-# # print('------------------------------------------------------------------')
-# # print((drew['Reservations'][0]))
-#print(type(response.text))
 
