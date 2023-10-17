@@ -20,7 +20,7 @@ print(type(list(psutil.Process().as_dict().keys())))
 process_list = []
 
 # Since the result of the 'psutil.process_iter' is a list we need to iterate thorugh it using a for loop
-for p in psutil.process_iter(attrs=['pid', 'name', 'exe', 'cpu_percent', 'memory_info']):
+for p in psutil.process_iter(['pid', 'name', 'exe', 'cpu_percent', 'memory_info']):
 
     # We need to create a veraiable to plase the irritated data in and append the information to our empty list
     process_info = p.info
@@ -42,28 +42,3 @@ with open(P_csv_file, 'w', newline='') as file:
     writer.writerows(process_list)
 
 print(f"Process information written to {P_csv_file}")
-
-
-
-
-
-
-
-
-
-# # # tests = psutil.process_iter(attrs=None)
-
-# # # for test in tests:
-# # #     print(test)
-# # #     print(type(test))
-# # Get a list of all running processes
-# process_list = list(psutil.process_iter(attrs=None))
-
-# # Use the first process in the list to extract the available attributes
-# if process_list:
-#     first_process = process_list[0]
-#     attrs = first_process.as_dict().keys()
-
-#     # Print the list of attributes
-#     for attr in attrs:
-#             print(attr)
