@@ -15,7 +15,7 @@ url = "https://free-nba.p.rapidapi.com/players"
 querystring = {"page":"0","per_page":"25"}
 
 headers = {
-    'X-RapidAPI-Key': '6fea4a232bmshb8ebb4116ed874bp179727jsn3a44b6c19b44',
+    'X-RapidAPI-Key': 'INSERT YOUR KEY HERE',
     'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
   }
 
