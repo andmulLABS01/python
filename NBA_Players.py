@@ -2,7 +2,11 @@
 #Import modules  os, requests, json, and csv
 import os
 import csv
-import requests
+try:
+    import requests
+except ImportError:
+    print("requests module is not installed. Please install it using 'pip install requests'.")
+    exit(1)
 import json
 
 # Put in the parameters for the API
