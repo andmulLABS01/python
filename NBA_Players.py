@@ -19,7 +19,7 @@ headers = {
     'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
   }
 
-# Make the API request
+# Make the API requestpit
 try:
     response = requests.get(url, headers=headers, params=querystring)
 
